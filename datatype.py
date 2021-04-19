@@ -1,7 +1,12 @@
+###############################자료형###################################
+from copy import copy
+
+
 #튜플은 변경할 수 없는 값
 t1 = (1,2, 'a','b')
 # 슬라이싱을하여 볼 수는 있다.
 print(t1[0])
+
 
 t1 = (1,2, 'a','b')
 t2 = (3,4)
@@ -9,25 +14,27 @@ t2 = (3,4)
 # 더하여 새로운 튜블은 만들어 낸 것이다.
 print(t1+t2)
 
+
 # 튜플 자료형
 t1 = (1,2, 'a','b')
 print(t1[0] + 1)
+
+
 a = (1,2)
 a = a * 3
-
 # (1,2) 자체가 3번 곱해져서 나오게 된다.
 print(a)
 
+
 # 딕셔너리
 dic = {'name' : 'Kimbaul', 'age' : 15}
-
 print(dic['name'])
+
 
 # 딕셔너리 쌍 추가하기
 a = {1: 'a'}
 # 추가 key value
 a['name'] = "노원"
-
 # 삭제  del로 삭제
 # del  value = a 안에 key 1 삭제
 del a[1]
@@ -108,4 +115,82 @@ s2 = set([4, 5, 6, 7, 8, 9])
 
 # 중복 없이 합집합이 출력된다.
 print(s1 | s2)
+print(s1.union(s2))
 
+
+# 차집합 ( - ) difference()
+
+s1 = set([1, 2, 3, 4, 5, 6])
+s2 = set([4, 5, 6, 7, 8, 9])
+
+print(s1 - s2)
+print(s1.difference(s2))
+
+# 1개의 값 추가하기(add)
+s1 = set([1,2,3])
+s1.add(4)
+print(s1)
+
+# 여러개의 값을 추가하기(update) *중복된 값은 들어가지 않는다.*
+s1.update([5,6,7,1])
+print(s1)
+
+# 값 지우기 (remove)
+s1 = set([1,2,3])
+s1.remove(1)
+print(s1)
+
+# boolean (true/false)
+a = [1,2,3,4]
+
+if a:
+    print(a)
+
+while a:
+    # php()은 리스트의 요소를 제거한다.
+    a.pop()
+    print(a)
+
+b = [1,2,3,4]
+b.pop(2)
+print(b)
+
+
+# 변수
+a = [1,2,3]
+b = a
+# a와 b가 같은 주소를 바라보고 있다.
+a[1] = 4
+print(a)
+print(b)
+
+a = [1,2,3]
+
+b = a[:]
+a[1] = 4
+print(id(a))
+print(id(b))
+
+#copy()는 슬라이싱(:)과 같다.
+#a의 값을 b에 새롭게 할당하겠다. 라는 의미이다.
+a = [1,2,3]
+b = copy(a)
+a[1] = 4
+print(a)
+print(b)
+
+#변수의 다양한 할당 방법
+a, b = ("nowon", "kim")
+# (a, b) = "nowon", "kim"
+# [a,b] = ['nowon' ,'kim']
+# a = b = 'hello'
+
+print(a)
+print(b)
+
+# a, b값을 바꿔 준다.
+a = 3
+b = 5
+a,b = b,a
+print(a)
+print(b)
